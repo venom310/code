@@ -1,0 +1,28 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+a = 1
+b = -5
+c = 6
+
+d = (b ** 2) - 4 * a * c
+print("d:", d)
+
+x1 = (-b + (d ** 0.5)) / 2 * a
+x2 = (-b - (d ** 0.5)) / 2 * a
+
+x = np.linspace(-10, 10, 100)
+y = (x * 5) - (5 * x * 3) - (20 * x) + 5
+
+plt.plot(x, y)
+plt.show()
+
+if d > 0:
+    print("As d>0 ,Roots are real and distinct")
+elif d < 0:
+    print("As d< 0, Roots are complex")
+else:
+    print("Roots are real and equal")
+
+print(x1)
+print(x2)
