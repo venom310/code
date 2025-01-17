@@ -1,0 +1,14 @@
+def Fib(n):
+    if n < 0:
+        print("Incorrect input: Fibonacci sequence is not defined for negative numbers")
+        return None
+    elif n == 0:
+        return 0
+    elif n == 1 or n == 2:
+        return 1
+    else:
+        return Fib(n - 1) + Fib(n - 2)
+
+
+n = 10
+print(f"Fibonacci({n}) = {Fib(n)}")
