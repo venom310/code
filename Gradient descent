@@ -1,0 +1,22 @@
+import numpy as np
+
+def func(x1, x2):
+    return x1 - x2 + x1 ** 2 + 2 * x1 * x2 + x2 ** 2
+
+def gradient(x1, x2):
+    df_dx1 = 1 + 4 * x1 + 2 * x2
+    df_dx2 = -1 + 2 * x1 + 2 * x2
+    return np.array([df_dx1, df_dx2])
+
+def gradient_descent(learning_rate=0.1, n_iterations=50, start_x1=0, start_x2=0):
+    x1, x2 = start_x1, start_x2
+    path = [(x1, x2)]
+    for _ in range(n_iterations):
+        grad = gradient(x1, x2)
+        x1, x2 = x1 - learning_rate * grad[0], x2 - learning_rate * grad[1]  # Update x1 and x2
+        path.append((x1, x2))
+
+    return x1, x2, path
+
+final_x1, final_x2, path = gradient_descent(learning_rate=0.1, n_iterations=50)
+print(f"Final optimized values: x1 = {final_x1}, x2 = {final_x2}")
